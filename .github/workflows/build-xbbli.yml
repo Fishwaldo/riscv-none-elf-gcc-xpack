@@ -76,7 +76,7 @@ jobs:
           echo "npm: $(npm --version)"
           ls -lLA
           env | sort | egrep '^[^ \t]+='
-          sudo du -sh /*
+          cd / && du -sh /*
           exit -1
 
       - name: 'Clean working area'
