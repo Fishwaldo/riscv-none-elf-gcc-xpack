@@ -77,7 +77,7 @@ jobs:
           echo "npm: $(npm --version)"
           ls -lLA
           env | sort | egrep '^[^ \t]+='
-          cd / && du -sh /* 
+          du -sh /* || true
           ls -lah /__t || true
           ls -lah /__e || true
           df -h || true
