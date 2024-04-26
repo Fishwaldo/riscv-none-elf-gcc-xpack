@@ -58,7 +58,7 @@ jobs:
   linux-x64-x:
     name: 'Linux Intel X - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
     timeout-minutes: 5760 # 4 days
-    runs-on: [self-hosted, linux, x64]
+    runs-on: [ ubuntu-latest ]
     container:
       image: ilegeul/ubuntu:amd64-18.04-xbb-v5.1.0
     defaults:
