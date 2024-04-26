@@ -81,9 +81,7 @@ jobs:
           ls -lLA
           env | sort | egrep '^[^ \t]+='
           df -h || true
-
-      #- name: 'Clean working area'
-      #  run: rm -rf * .git*
+          mkdir -p /home/runner/Work/cache/
 
       - name: 'Checkout project'
         uses: actions/checkout@v4
@@ -158,9 +156,7 @@ jobs:
           ls -lLA
           env | sort | egrep '^[^ \t]+='
           df -h || true
-
-      #- name: 'Clean working area'
-      #  run: rm -rf * .git*
+          mkdir -p /home/runner/Work/cache/
 
       - name: 'Checkout project'
         uses: actions/checkout@v4
