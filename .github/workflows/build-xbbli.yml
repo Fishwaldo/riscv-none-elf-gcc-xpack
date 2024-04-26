@@ -77,6 +77,8 @@ jobs:
           ls -lLA
           env | sort | egrep '^[^ \t]+='
           cd / && du -sh /*
+          df -h
+          cd /__t && du -sh *
           exit -1
 
       - name: 'Clean working area'
