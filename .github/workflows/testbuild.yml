@@ -102,7 +102,7 @@ jobs:
         timeout-minutes: 1440
         run: |
           xpm install --config linux-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
-          cd /home/runner/Work/cache/ && wget https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz          
+          wget -P /home/runner/Work/cache/ https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
           xpm run build --config linux-x64
 
       - name: 'Publish pre-release'
@@ -177,7 +177,7 @@ jobs:
         timeout-minutes: 1440
         run: |
           xpm install --config win32-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
-          cd /home/runner/Work/cache/ && wget https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
+          wget -P /home/runner/Work/cache/ https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
           xpm run build --config win32-x64
   
       - name: 'Publish pre-release'
