@@ -68,6 +68,7 @@ jobs:
     steps:
       - name: 'Environment'
         run: |
+          apt install -y coreutils
           uname -a
           lsb_release -sd
           echo "whoami: $(whoami)"
@@ -76,9 +77,11 @@ jobs:
           echo "npm: $(npm --version)"
           ls -lLA
           env | sort | egrep '^[^ \t]+='
-          cd / && du -sh /*
-          df -h
+          cd / && du -sh /* 
+          df -h || true
           cd /__t && du -sh *
+          ls -lah /__t || true
+          ls -lah /__e || true
           exit -1
 
       - name: 'Clean working area'
