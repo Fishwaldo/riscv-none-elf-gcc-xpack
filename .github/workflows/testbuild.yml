@@ -19,7 +19,7 @@
 # -----------------------------------------------------------------------------
 
 
-name: 'Build xPack GNU RISC-V Embedded GCC xbbli'
+name: 'TestBuild'
 
 on:
   workflow_dispatch:
