@@ -118,16 +118,10 @@ jobs:
           omitBodyDuringUpdate: true
           omitDraftDuringUpdate: true
           omitNameDuringUpdate: true
-          owner: 'xpack-dev-tools'
           prerelease: true
           replacesArtifacts: true
           repo: 'pre-releases'
           tag: 'test'
-          token: ${{ secrets.PUBLISH_TOKEN }}
-
-      - name: 'Rename working area'
-        # For just in case absolute paths remain unprocessed.
-        run: mv -v build build-$(date -u +%Y%m%d-%H%M%S)
 
   linux-x64-w:
     name: 'Linux Intel W - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
@@ -193,12 +187,10 @@ jobs:
           omitBodyDuringUpdate: true
           omitDraftDuringUpdate: true
           omitNameDuringUpdate: true
-          owner: 'xpack-dev-tools'
           prerelease: true
           replacesArtifacts: true
           repo: 'pre-releases'
           tag: 'test'
-          token: ${{ secrets.PUBLISH_TOKEN }}
 
       - name: 'Rename working area'
         # For just in case absolute paths remain unprocessed.
