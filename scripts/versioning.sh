@@ -19,7 +19,7 @@ function application_build_versioned_components()
   # bfdver.h file remains empty.
   XBB_BRANDING="${XBB_APPLICATION_DISTRO_NAME} ${XBB_APPLICATION_NAME} ${XBB_REQUESTED_TARGET_MACHINE}"
 
-  XBB_CFLAGS_OPTIMIZATIONS_FOR_TARGET="-ffunction-sections -fdata-sections -O2 -w"
+  XBB_CFLAGS_OPTIMIZATIONS_FOR_TARGET="-ffunction-sections -fdata-sections -O2 -w -fno-omit-frame-pointer"
   # Cannot use medlow with 64 bits, so all must be medany.
   XBB_CFLAGS_OPTIMIZATIONS_FOR_TARGET+=" -mcmodel=medany"
 
