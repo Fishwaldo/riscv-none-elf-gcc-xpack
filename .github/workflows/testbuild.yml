@@ -59,13 +59,17 @@ jobs:
     name: 'Linux Intel X - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
     timeout-minutes: 5760 # 4 days
     runs-on: [ ubuntu-latest ]
-    container:
-      image: ilegeul/ubuntu:amd64-18.04-xbb-v5.1.0
     defaults:
       run:
         shell: bash
 
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'      
       - name: 'Environment'
         run: |
           apt install -y coreutils
@@ -77,16 +81,6 @@ jobs:
           echo "npm: $(npm --version)"
           ls -lLA
           env | sort | egrep '^[^ \t]+='
-          du -sh /* || true
-          ls -lah /__t || true
-          df -h || true
-          rm -rf /__t/CodeQL
-          rm -rf /__t/Java_Temurin-Hotspot_jdk
-          rm -rf /__t/PyPy
-          rm -rf /__t/Python
-          rm -rf /__t/Ruby
-          rm -rf /__t/go
-          ls -lah /__e || true
           df -h || true
 
       - name: 'Clean working area'
@@ -141,13 +135,18 @@ jobs:
     name: 'Linux Intel W - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
     timeout-minutes: 5760 # 4 days
     runs-on: [ ubuntu-latest ]
-    container:
-      image: ilegeul/ubuntu:amd64-18.04-xbb-v5.1.0
     defaults:
       run:
         shell: bash
 
     steps:
+      - name: Maximize build space
+        uses: easimon/maximize-build-space@master
+        with:
+          root-reserve-mb: 512
+          swap-size-mb: 1024
+          remove-dotnet: 'true'      
+
       - name: 'Environment'
         run: |
           uname -a
@@ -158,18 +157,7 @@ jobs:
           echo "npm: $(npm --version)"
           ls -lLA
           env | sort | egrep '^[^ \t]+='
-          du -sh /* || true
-          ls -lah /__t || true
           df -h || true
-          rm -rf /__t/CodeQL
-          rm -rf /__t/Java_Temurin-Hotspot_jdk
-          rm -rf /__t/PyPy
-          rm -rf /__t/Python
-          rm -rf /__t/Ruby
-          rm -rf /__t/go
-          ls -lah /__e || true
-          df -h || true
-
 
       - name: 'Clean working area'
         run: rm -rf * .git*
