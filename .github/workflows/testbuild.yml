@@ -67,7 +67,7 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 512
+          root-reserve-mb: 4096
           swap-size-mb: 1024
           remove-dotnet: 'true'      
       - name: 'Environment'
@@ -82,8 +82,8 @@ jobs:
           env | sort | egrep '^[^ \t]+='
           df -h || true
 
-      - name: 'Clean working area'
-        run: rm -rf * .git*
+      #- name: 'Clean working area'
+      #  run: rm -rf * .git*
 
       - name: 'Checkout project'
         uses: actions/checkout@v1
@@ -142,7 +142,7 @@ jobs:
       - name: Maximize build space
         uses: easimon/maximize-build-space@master
         with:
-          root-reserve-mb: 512
+          root-reserve-mb: 4096
           swap-size-mb: 1024
           remove-dotnet: 'true'      
 
@@ -158,8 +158,8 @@ jobs:
           env | sort | egrep '^[^ \t]+='
           df -h || true
 
-      - name: 'Clean working area'
-        run: rm -rf * .git*
+      #- name: 'Clean working area'
+      #  run: rm -rf * .git*
 
       - name: 'Checkout project'
         uses: actions/checkout@v1
