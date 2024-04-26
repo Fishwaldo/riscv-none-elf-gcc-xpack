@@ -87,10 +87,10 @@ jobs:
           rm -rf /__t/Ruby
           rm -rf /__t/go
           ls -lah /__e || true
-          rm -rf /__e/node16
-          rm -rf /__e/node16_alpine
-          rm -rf /__e/node20
-          rm -rf /__e/node20_alpine
+          sudo rm -rf /__e/node16 || true
+          sudo rm -rf /__e/node16_alpine || true
+          sudo rm -rf /__e/node20 || true
+          sudo rm -rf /__e/node20_alpine || true
           df -h || true
           exit -1
 
