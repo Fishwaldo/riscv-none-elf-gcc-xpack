@@ -103,7 +103,9 @@ jobs:
         run: |
           xpm install --config linux-x64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
           wget -P /home/runner/Work/cache/ https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
-          xpm run build --config linux-x64
+          #xpm run build --config linux-x64
+          mkdir -p build/linux-x64/deploy/
+          touch build/linux-x64/deploy/test.txt
 
       - name: 'Publish pre-release'
         # https://github.com/ncipollo/release-action
@@ -120,7 +122,6 @@ jobs:
           omitNameDuringUpdate: true
           prerelease: true
           replacesArtifacts: true
-          repo: 'pre-releases'
           tag: 'test'
 
   linux-x64-w:
