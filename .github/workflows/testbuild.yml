@@ -122,7 +122,6 @@ jobs:
           omitNameDuringUpdate: true
           prerelease: true
           replacesArtifacts: true
-          tag: 'test'
 
   linux-x64-w:
     name: 'Linux Intel W - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
