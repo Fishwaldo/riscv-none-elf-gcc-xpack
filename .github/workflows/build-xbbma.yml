@@ -59,7 +59,7 @@ jobs:
     name: 'macOS Arm - riscv-none-elf-gcc ${{ github.event.inputs.version }} build'
     timeout-minutes: 2880 # 2 days
 
-    runs-on: [self-hosted, macos, apple]
+    runs-on: [ macos-latest ]
 
     steps:
       - name: 'Environment'
@@ -102,21 +102,13 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts: 'build/darwin-arm64/deploy/*'
+          artifacts: 'build/linux-x64/deploy/*'
           bodyFile: '.github/workflows/body-github-pre-releases-test.md'
-          commit: 'master'
+          commit: 'xpack'
+          tag: ${{ github.event.inputs.version }}
           draft: false
           name: 'Test binaries'
           omitBodyDuringUpdate: true
           omitDraftDuringUpdate: true
           omitNameDuringUpdate: true
-          owner: 'xpack-dev-tools'
-          prerelease: true
           replacesArtifacts: true
-          repo: 'pre-releases'
-          tag: 'test'
-          token: ${{ secrets.PUBLISH_TOKEN }}
-
-      - name: 'Rename working area'
-        # For just in case absolute paths remain unprocessed.
-        run: mv -v build build-$(date -u +%Y%m%d-%H%M%S)
