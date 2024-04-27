@@ -107,7 +107,7 @@ jobs:
           wget -P /home/runner/Work/cache/ https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
           #xpm run build --config linux-x64
           mkdir -p build/linux-x64/deploy/
-          touch build/linux-x64/deploy/test.txt
+          echo "hello" > build/linux-x64/deploy/test.txt
 
       - name: 'Publish pre-release'
         # https://github.com/ncipollo/release-action
