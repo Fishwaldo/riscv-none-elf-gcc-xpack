@@ -74,7 +74,7 @@ jobs:
           env | sort | egrep '^[^ \t]+='
           df -h || true
           pwd
-          mkdir -p Work/cache/
+          mkdir -p /Users/runner/Work/cache/
 
       - name: 'Clean working area'
         run: rm -rf * .git*
@@ -98,7 +98,7 @@ jobs:
         timeout-minutes: 1440
         run: |
           xpm install --config darwin-arm64 --loglevel ${{ github.event.inputs.xpm_install_loglevel }} ${{ github.event.inputs.xpm_install_options }}
-          wget -P Work/cache/ https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
+          wget -P /Users/runner/Work/cache/ https://ftp.gnu.org/gnu/gmp/gmp-6.3.0.tar.xz
           xpm run build --config darwin-arm64
   
       - name: 'Publish pre-release'
