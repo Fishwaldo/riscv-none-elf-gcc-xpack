@@ -62,6 +62,8 @@ jobs:
     defaults:
       run:
         shell: bash
+    permissions:
+      contents: write
 
     steps:
       - name: Maximize build space
@@ -114,7 +116,8 @@ jobs:
           allowUpdates: true
           artifacts: 'build/linux-x64/deploy/*'
           bodyFile: '.github/workflows/body-github-pre-releases-test.md'
-          commit: 'master'
+          commit: 'xpack'
+          tag: 'test'
           draft: false
           name: 'Test binaries'
           omitBodyDuringUpdate: true
