@@ -106,7 +106,7 @@ jobs:
         uses: ncipollo/release-action@v1
         with:
           allowUpdates: true
-          artifacts: 'build/linux-x64/deploy/*'
+          artifacts: 'build/darwin-arm64/deploy/*'
           bodyFile: '.github/workflows/body-github-pre-releases-test.md'
           commit: 'xpack'
           tag: ${{ github.event.inputs.version }}
